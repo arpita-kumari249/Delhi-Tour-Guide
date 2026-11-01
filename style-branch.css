@@ -1,0 +1,14 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    background-color:#F3E6D3;
+}
+h1{
+    text-align: center;
+}
+img{
+    align-items: right;
+    width: 500px;
+}
