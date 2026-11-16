@@ -104,7 +104,7 @@ body{
 /* HERO SECTION */
 .mainpage {
     min-height: calc(100vh - 75px);
-    background-image: linear-gradient(rgba(20,35,28,0.65), rgba(20,35,28,0.65)), url("IndiaGate.jpg");
+    background-image: linear-gradient(rgba(20,35,28,0.65), rgba(20,35,28,0.65)), url("HomePage.png");
     background-size: cover;
     background-position: center;
     display: flex;
