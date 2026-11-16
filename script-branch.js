@@ -1,11 +1,3 @@
-/* =========================================================
-   script-branch.js - Delhi Travels BRANCH PAGES (India_Gate.html etc.)
-   Replaces place-data.js and the branch part of the old script.js.
-   Load with:  <script src="script-branch.js" defer></script>
-   The place is detected from the file name:
-   India_Gate.html -> 'india-gate', Humayuns_Tomb.html -> 'humayuns-tomb'
-   ========================================================= */
-
 /* ---------- 1. SMALL HELPERS ---------- */
 const LINE_COLOURS = {
   Yellow:  ['#F5C400', '#282722'],
@@ -16,7 +8,6 @@ const LINE_COLOURS = {
   Red:     ['#D32F2F', '#FFFFFF'],
   Green:   ['#2E8B57', '#FFFFFF']
 };
-const PRICE_LABEL = { 1: '₹ Budget', 2: '₹₹ Moderate', 3: '₹₹₹ Splurge' };
 const TRAVELLERS = ['Students', 'Solo', 'Family', 'Couples'];
 
 const GENERAL_NOTE = 'Prices are indicative (checked November 2026) and can change. Confirm at the counter or on the official website before you go.';

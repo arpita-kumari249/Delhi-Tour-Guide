@@ -1,8 +1,3 @@
-/* =========================================================
-   script-main.js - Delhi Travels HOMEPAGE (index.html only)
-   Load with:  <script src="script-main.js" defer></script>
-   ========================================================= */
-
 /* ---------- 1. PLACE LIST (file names match the saved HTML files) ---------- */
 const PLACES = [
   { name: 'India Gate',     file: 'India_Gate.html',    area: 'central', tags: ['historical', 'parks'],     hours: 1.5, outdoor: true,  night: true,  aliases: ['kartavya path', 'war memorial'] },
