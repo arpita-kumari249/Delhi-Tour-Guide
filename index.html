@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delhi Tour Guide</title>
     <link rel="stylesheet" href="style-main.css">
+    <script src="script-main.js" defer></script>
 </head>
 <body>
     
@@ -185,7 +186,7 @@
                 <a class="photo-card" href="Chandni_Chowk.html" tabindex="-1">
                     <img src="ChandniChowk.jpg" alt="Chandni Chowk"><h3>Chandni Chowk</h3>
                 </a>
-                <a class="photo-card" href="Humayuns-tomb.html" tabindex="-1">
+                <a class="photo-card" href="Humayuns_Tomb.html" tabindex="-1">
                     <img src="HumayunsTomb.webp" alt="Humayun's Tomb"><h3>Humayun's Tomb</h3>
                 </a>
                 <a class="photo-card" href="India_Gate.html" tabindex="-1">
@@ -241,16 +242,19 @@
 
         <div class="travel-card">
             <div class="travel-icon">🚕</div>
-            <h3>Ola</h3>
-            <p>Book a cab, auto or bike taxi at your doorstep.</p>
-            <a href="https://www.olacabs.com" target="_blank" rel="noopener" class="btn">Book with Ola</a>
+            <h3>Ola &amp; Uber</h3>
+            <p>Book a cab, auto or bike taxi in a few taps.</p>
+            <div class="btn-row">
+            <a href="https://www.olacabs.com" target="_blank" rel="noopener" class="btn">Ola</a>
+            <a href="https://www.uber.com/in/en/" target="_blank" rel="noopener" class="btn">Uber</a>
+            </div> 
         </div>
 
         <div class="travel-card">
-            <div class="travel-icon">🚖</div>
-            <h3>Uber</h3>
-            <p>Request an Uber ride for a comfortable trip.</p>
-            <a href="https://www.uber.com/in/en/" target="_blank" rel="noopener" class="btn">Book with Uber</a>
+            <div class="travel-icon">🏍️</div>
+            <h3>Rapido</h3>
+            <p>Affordable bike taxis, autos and cabs for quick city rides.</p>
+            <a href="https://www.rapido.bike" target="_blank" rel="noopener" class="btn">Book with Rapido</a>
         </div>
 
     </div>
@@ -266,8 +270,8 @@
         <p>Tell us your preferences and we'll shape your Delhi day.</p>
     </div>
 
-    <form class="itinerary-form" action="itinerary-result.html" method="get">
-
+    <form class="itinerary-form" method="get">
+        <div id="itinerary-result" class="itinerary-result"></div>
         <div class="form-group">
             <label for="time-limit">Time available</label>
             <select id="time-limit" name="time">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chandni Chowk | Delhi Travels</title>
     <link rel="stylesheet" href="style-main.css">
     <link rel="stylesheet" href="style-branch.css">
 </head>
@@ -64,6 +64,71 @@
 
     <div class="back-row"><a href="index.html#explore" class="btn">← Back to Top Places</a></div>
 </main>
+
+<div class="place-extras" data-place="India Gate, New Delhi">
+
+    <!-- MAP -->
+    <section class="place-card">
+        <h2>Find <span class="place-name"></span> on the Map</h2>
+        <iframe class="map-frame" id="place-map" title="Map" loading="lazy"></iframe>
+        <a id="directions-link" class="btn" href="#" target="_blank" rel="noopener">Get Directions</a>
+    </section>
+
+    <!-- NEARBY -->
+    <section class="place-card">
+        <h2>Explore Near <span class="place-name"></span></h2>
+        <p>Find cafes, restaurants and shops around this place.</p>
+        <div class="nearby-tabs">
+            <button type="button" class="nearby-tab active" data-type="cafes">☕ Cafes</button>
+            <button type="button" class="nearby-tab" data-type="restaurants">🍽️ Restaurants</button>
+            <button type="button" class="nearby-tab" data-type="shops">🛍️ Shops</button>
+        </div>
+        <iframe class="map-frame" id="nearby-map" title="Nearby places" loading="lazy"></iframe>
+        <a id="nearby-link" class="btn" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="place-card">
+        <h2>Reviews &amp; Feedback</h2>
+        <p class="review-summary" id="review-summary"></p>
+
+        <form class="review-form" id="review-form">
+            <div class="form-group">
+                <label for="r-name">Your name</label>
+                <input type="text" id="r-name" name="name" maxlength="40" required>
+            </div>
+            <div class="form-group">
+                <label for="r-type">Type</label>
+                <select id="r-type" name="type">
+                    <option>Review</option>
+                    <option>Suggestion</option>
+                    <option>Report incorrect information</option>
+                </select>
+            </div>
+            <div class="form-group full">
+                <p class="field-label">Your rating</p>
+                <div class="star-input">
+                    <input type="radio" id="s5" name="rating" value="5"><label for="s5">★</label>
+                    <input type="radio" id="s4" name="rating" value="4"><label for="s4">★</label>
+                    <input type="radio" id="s3" name="rating" value="3"><label for="s3">★</label>
+                    <input type="radio" id="s2" name="rating" value="2"><label for="s2">★</label>
+                    <input type="radio" id="s1" name="rating" value="1"><label for="s1">★</label>
+                </div>
+            </div>
+            <div class="form-group full">
+                <label for="r-text">Your feedback</label>
+                <textarea id="r-text" name="text" rows="4" maxlength="500" required></textarea>
+            </div>
+            <div class="full">
+                <button type="submit" class="btn">Submit Feedback</button>
+                <p id="review-msg" role="status"></p>
+            </div>
+        </form>
+
+        <div id="review-list"></div>
+    </section>
+
+</div>
 
 <footer class="site-footer">
     <div class="footer-bottom">

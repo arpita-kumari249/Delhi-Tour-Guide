@@ -100,3 +100,120 @@ h1{
     .quick-facts { grid-template-columns: 1fr; }
     .place-card { padding: 25px 20px; }
 }
+
+/* MAP + NEARBY */
+.map-frame {
+    width: 100%;
+    height: 380px;
+    border: 0;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    background-color: #EAE0CC;
+}
+.nearby-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0; }
+.nearby-tab {
+    padding: 10px 20px;
+    border: 2px solid #294638;
+    border-radius: 25px;
+    background: transparent;
+    color: #294638;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.nearby-tab:hover, .nearby-tab.active { background-color: #294638; color: #F3EBDD; }
+
+/* REVIEWS */
+.review-summary { color: #A77B52 !important; font-weight: bold; font-size: 17px !important; }
+.review-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0 30px; }
+.review-form .full { grid-column: 1 / -1; }
+.review-form .field-label { color: #294638; font-weight: bold; font-size: 14px; margin: 0; }
+.review-form input[type="text"], .review-form textarea, .review-form select {
+    padding: 11px;
+    border: 1px solid #D5C9B2;
+    border-radius: 8px;
+    background-color: #F3EBDD;
+    color: #282722;
+    font-family: inherit;
+    font-size: 14px;
+}
+#review-msg { margin: 12px 0 0; color: #294638 !important; font-weight: bold; }
+
+/* STAR RATING (pure CSS) */
+.star-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; }
+.star-input input { display: none; }
+.star-input label { font-size: 30px; color: #D5C9B2; cursor: pointer; transition: color 0.2s; }
+.star-input input:checked ~ label,
+.star-input label:hover,
+.star-input label:hover ~ label { color: #D5A66F; }
+
+/* REVIEW LIST */
+.review-item { padding: 16px 0; border-top: 1px solid #EAE0CC; }
+.review-head { display: flex; justify-content: space-between; align-items: center; }
+.review-head strong { color: #294638; }
+.review-stars { color: #D5A66F; letter-spacing: 2px; }
+.review-item small { color: #A77B52; }
+.review-item p { margin: 8px 0 0; }
+
+@media (max-width: 768px) {
+    .review-form { grid-template-columns: 1fr; }
+    .map-frame { height: 300px; }
+}
+[hidden] { display: none !important; }
+
+/* METRO LINE BADGES (top strip + location) */
+.line-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; letter-spacing: 0.5px; }
+.quick-facts div { border-top-width: 5px; }
+
+/* TICKETS */
+.ticket-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 6px 0 18px; }
+.ticket { background: #F3EBDD; border-radius: 10px; border-top: 3px solid #A77B52; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.ticket span { color: #77736B; font-size: 13px; }
+.ticket strong { color: #294638; font-size: 22px; }
+.ticket.free { border-top-color: #2E8B57; }
+.ticket.free strong { color: #2E8B57; }
+.alert-box { background: #FFF3D6; border-left: 4px solid #D5A66F; color: #5A4A28; border-radius: 8px; padding: 12px 16px; font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+.place-card .ticket-note { font-size: 13px; margin-bottom: 16px; }
+
+/* LOCATION */
+.loc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 8px 0 28px; }
+.loc-tile { background: #F3EBDD; border-radius: 12px; border-top: 4px solid #294638; padding: 18px; }
+.place-card .loc-tile h3 { margin: 0 0 10px; }
+.place-card .loc-tile p { font-size: 14px; margin-bottom: 8px; }
+.loc-tile strong { color: #294638; }
+.loc-link { color: #A77B52; font-weight: bold; font-size: 13px; text-decoration: none; }
+.loc-link:hover { color: #294638; }
+.place-card .gate { color: #294638; font-weight: bold; }
+.place-card .gate.unknown { color: #77736B; font-weight: normal; font-style: italic; }
+
+.reach-list { list-style: none; counter-reset: step; margin-bottom: 6px; }
+.reach-list li { counter-increment: step; display: flex; flex-direction: column; gap: 4px; position: relative; padding: 0 0 16px 46px; }
+.reach-list li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #294638; color: #F3EBDD;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: bold;
+}
+.reach-list strong { color: #294638; }
+.reach-list span { color: #77736B; font-size: 14px; line-height: 1.7; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { background: #F3EBDD; border: 1px solid #D5C9B2; color: #294638; border-radius: 20px; padding: 6px 14px; font-size: 13px; }
+
+/* NEARBY LISTS */
+.spot-list { list-style: none; margin-top: 14px; }
+.spot { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px 0; border-top: 1px solid #EAE0CC; }
+.spot a { color: #294638; font-weight: bold; font-size: 17px; text-decoration: none; }
+.spot a:hover { color: #A77B52; text-decoration: underline; }
+.place-card .spot p { margin: 4px 0 8px; font-size: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { background: #EAE0CC; color: #294638; font-size: 11px; border-radius: 10px; padding: 3px 9px; }
+.price-pill { white-space: nowrap; background: #294638; color: #F3EBDD; border-radius: 14px; padding: 5px 12px; font-size: 12px; }
+.place-card .empty { font-style: italic; }
+
+@media (max-width: 768px) {
+    .loc-grid { grid-template-columns: 1fr; }
+    .spot { flex-direction: column; gap: 8px; }
+}
