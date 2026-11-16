@@ -1,4 +1,3 @@
-/* ---------- 1. SMALL HELPERS ---------- */
 const LINE_COLOURS = {
   Yellow:  ['#F5C400', '#282722'],
   Blue:    ['#0B5CAB', '#FFFFFF'],
@@ -17,7 +16,7 @@ const BIENNALE = 'India Biennale 2026 (4 Dec 2026 – 21 Mar 2027) uses this sit
 const mapsUrl = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
 const badge = l => `<span class="line-badge" style="background:${LINE_COLOURS[l][0]};color:${LINE_COLOURS[l][1]}">${l} Line</span>`;
 
-/* ---------- 2. POPULAR SPOTS: [name, note, price 1-3, traveller types, Google Maps search] ---------- */
+/*POPULAR SPOTS*/
 const S = {
   /* cafes and sweet stops */
   triveni:   ['Triveni Tea Terrace', 'Garden tea-and-snacks spot beside an art gallery, cheap and relaxed', 1, ['Students', 'Solo'], 'Triveni Tea Terrace Tansen Marg New Delhi'],
@@ -78,9 +77,7 @@ const S = {
   akshgift:  ['Akshardham gift shops', 'Books, souvenirs and keepsakes in the complex', 2, ['Family', 'Solo'], 'Akshardham Temple Delhi gift shop']
 };
 
-/* ---------- 3. THE TEN PLACES ----------
-   Key = file name in lowercase with "_" turned into "-"  (India_Gate.html -> 'india-gate')
-   metro.gate: set only when confirmed. Leave null to show "check the signboard". */
+/*PLACES*/
 const PLACE_DATA = {
 
   'india-gate': {
@@ -250,18 +247,18 @@ const PLACE_DATA = {
   }
 };
 
-/* ---------- 4. NAVBAR SEARCH (same as homepage) ---------- */
+/*NAVBAR SEARCH*/
 const SEARCH_PLACES = [
-  { name: 'India Gate',     file: 'India_Gate.html',    aliases: ['kartavya path', 'war memorial'] },
-  { name: 'Red Fort',       file: 'Red_Fort.html',      aliases: ['lal qila', 'lal kila'] },
-  { name: 'Qutub Minar',    file: 'Qutub_Minar.html',   aliases: ['qutb minar', 'qutab minar', 'mehrauli'] },
   { name: 'Akshardham',     file: 'Akshardham.html',    aliases: ['swaminarayan', 'akshardham temple'] },
-  { name: 'Lotus Temple',   file: 'Lotus_Temple.html',  aliases: ['bahai temple', 'lotus'] },
+  { name: 'Chandni Chowk',  file: 'Chandni_Chowk.html', aliases: ['chandni', 'old delhi market'] },
   { name: "Humayun's Tomb", file: 'Humayuns_Tomb.html', aliases: ['humayun', 'humayuns tomb'] },
+  { name: 'India Gate',     file: 'India_Gate.html',    aliases: ['kartavya path', 'war memorial'] },
   { name: 'Jama Masjid',    file: 'Jama_Masjid.html',   aliases: ['jama', 'jami masjid'] },
   { name: 'Lodhi Garden',   file: 'Lodhi_Garden.html',  aliases: ['lodi garden', 'lodhi'] },
-  { name: 'Chandni Chowk',  file: 'Chandni_Chowk.html', aliases: ['chandni', 'old delhi market'] },
-  { name: 'Purana Qila',    file: 'Purana_Qila.html',   aliases: ['old fort', 'purana kila', 'indraprastha'] }
+  { name: 'Lotus Temple',   file: 'Lotus_Temple.html',  aliases: ['bahai temple', 'lotus'] },
+  { name: 'Purana Qila',    file: 'Purana_Qila.html',   aliases: ['old fort', 'purana kila', 'indraprastha'] },
+  { name: 'Red Fort',       file: 'Red_Fort.html',      aliases: ['lal qila', 'lal kila'] },
+  { name: 'Qutub Minar',    file: 'Qutub_Minar.html',   aliases: ['qutb minar', 'qutab minar', 'mehrauli'] },
 ];
 
 const clean = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -317,7 +314,7 @@ function setupSearch() {
   });
 }
 
-/* ---------- 5. CARD BUILDERS ---------- */
+/*CARD BUILDERS*/
 function ticketCard(d) {
   const rows = d.tickets.map(([label, price]) =>
     `<div class="ticket${price === 'Free' ? ' free' : ''}"><span>${label}</span><strong>${price}</strong></div>`).join('');
@@ -412,12 +409,11 @@ function htmlToNodes(html) {
   return [...tmp.children];
 }
 
-/* ---------- 6. BUILD THE PAGE (tickets, location, nearby) ---------- */
+/*BUILD THE PAGE*/
 function buildPlacePage(d) {
   const main = document.querySelector('.place-content');
   if (!d || !main) return;
 
-  // quick-facts strip at the top, with a coloured metro tile
   const qf = document.querySelector('.quick-facts');
   if (qf) {
     const m = d.metro;
@@ -426,14 +422,12 @@ function buildPlacePage(d) {
          <span>${m.station}</span><span>${m.lines.map(badge).join(' ')}</span></div>`;
   }
 
-  // move the map / nearby / reviews block INTO <main> so it keeps the page width
   const extras = document.querySelector('.place-extras');
   const backRow = main.querySelector('.back-row');
   if (extras && extras.parentElement !== main) {
     if (backRow) main.insertBefore(extras, backRow); else main.appendChild(extras);
   }
 
-  // replace the old Location card with tickets + the new location card
   let first = null;
   main.querySelectorAll(':scope > section.place-card').forEach(s => {
     const h = s.querySelector('h2');
@@ -443,7 +437,6 @@ function buildPlacePage(d) {
   const top = htmlToNodes(ticketCard(d) + locationCard(d));
   if (first) first.after(...top); else main.prepend(...top);
 
-  // replace the old single "nearby" card with the three new sections
   const oldMap = document.getElementById('nearby-map');
   if (oldMap && oldMap.closest('section')) oldMap.closest('section').remove();
   const cards = htmlToNodes(nearbyCards(d));
@@ -452,7 +445,6 @@ function buildPlacePage(d) {
   if (reviewCard) reviewCard.before(...cards);
   else (extras || main).append(...cards);
 
-  // traveller filter
   document.querySelectorAll('.filter-bar .nearby-tab').forEach(btn => btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-bar .nearby-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -460,9 +452,8 @@ function buildPlacePage(d) {
   }));
 }
 
-/* ---------- 7. MAP + REVIEWS ---------- */
+/*MAP + REVIEWS*/
 function setupMapAndReviews(d, id) {
-  // use the place from PLACE_DATA, so a wrong data-place in the HTML can never show the wrong map
   const place = d ? `${d.name}, New Delhi` : ((document.querySelector('.place-extras') || {}).dataset || {}).place;
   if (!place) return;
   const q = encodeURIComponent(place);
@@ -475,7 +466,6 @@ function setupMapAndReviews(d, id) {
   const dir = document.getElementById('directions-link');
   if (dir) dir.href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
 
-  // reviews are saved in this visitor's browser, one list per place
   const form = document.getElementById('review-form');
   const list = document.getElementById('review-list');
   const summary = document.getElementById('review-summary');
@@ -542,14 +532,12 @@ function setupMapAndReviews(d, id) {
   render();
 }
 
-/* ---------- START ---------- */
 (function init() {
-  // India_Gate.html -> india-gate
   const file = decodeURIComponent(location.pathname.split('/').pop() || '');
   const id = file.replace(/\.html?$/i, '').toLowerCase().replace(/_/g, '-');
   const d = PLACE_DATA[id];
 
   setupSearch();
-  buildPlacePage(d);          // tickets, location, nearby (runs first so the old nearby card is gone)
-  setupMapAndReviews(d, id);  // map, directions, reviews
+  buildPlacePage(d);          
+  setupMapAndReviews(d, id); 
 })();

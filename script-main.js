@@ -12,7 +12,6 @@ const PLACES = [
   { name: 'Purana Qila',    file: 'Purana_Qila.html',   area: 'central', tags: ['historical', 'parks'],     hours: 2,   outdoor: true,  night: false, aliases: ['old fort', 'purana kila', 'indraprastha'] }
 ];
 
-// which areas are next to each other (used to sort the itinerary)
 const NEAR = {
   central: ['old', 'south', 'east'],
   old:     ['central', 'north'],
@@ -135,14 +134,13 @@ function setupItinerary() {
     if (daytime === 'evening') pool = pool.filter(p => p.night);
     pool.sort((a, b) => rank(a) - rank(b));
 
-    // fill each day with the best-ranked places that fit the time limit
     const plan = [];
     for (let i = 0; i < days; i++) {
       let t = start, used = 0;
       const stops = [];
       pool.slice().forEach(p => {
-        const need = p.hours + (stops.length ? 0.5 : 0);   // 30 min travel between stops
-        const closes = p.night ? 21.5 : 18;                // monuments close around sunset
+        const need = p.hours + (stops.length ? 0.5 : 0);  
+        const closes = p.night ? 21.5 : 18;               
         if (used + need <= perDay && t + p.hours <= closes) {
           stops.push({ p, at: t });
           t += p.hours + 0.5;
@@ -193,7 +191,6 @@ function setupItinerary() {
   });
 }
 
-/* ---------- START ---------- */
 setupSearch();
 setupPages();
 setupItinerary();

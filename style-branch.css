@@ -9,7 +9,6 @@ h1{
     text-align: center;
 }
 
-/* BANNER */
 .place-hero {
     min-height: 340px;
     background-image: linear-gradient(rgba(20,35,28,0.65), rgba(20,35,28,0.65)), var(--hero-img);
@@ -27,7 +26,6 @@ h1{
 .place-subtitle { color: #D5A66F; letter-spacing: 4px; font-size: 13px; font-weight: bold; margin-bottom: 12px; }
 .place-tagline { color: #E6DECB; font-style: italic; margin-top: 12px; }
 
-/* QUICK FACTS STRIP */
 .quick-facts {
     max-width: 950px;
     margin: -45px auto 0;
@@ -62,13 +60,12 @@ h1{
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     margin-bottom: 30px;
 }
-.place-card::after { content: ""; display: block; clear: both; }   /* contains the floated image */
+.place-card::after { content: ""; display: block; clear: both; }
 
 .place-card h2 { color: #294638; font-size: 30px; margin-bottom: 18px; }
 .place-card h3 { color: #A77B52; font-size: 14px; letter-spacing: 2px; margin: 24px 0 8px; }
 .place-card p  { color: #77736B; font-size: 15px; line-height: 1.8; margin-bottom: 14px; }
 
-/* image floats right inside the Insights card */
 .place-card img {
     float: right;
     width: 420px;
@@ -90,17 +87,6 @@ h1{
 
 .back-row { text-align: center; }
 
-/* MOBILE */
-@media (max-width: 768px) {
-    .quick-facts { grid-template-columns: repeat(2, 1fr); }
-    .place-card img { float: none; display: block; width: 100%; margin: 0 0 20px; }
-    .place-hero h1 { font-size: 32px; }
-}
-@media (max-width: 480px) {
-    .quick-facts { grid-template-columns: 1fr; }
-    .place-card { padding: 25px 20px; }
-}
-
 /* NEARBY */
 .nearby-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0; }
 .nearby-tab {
@@ -114,48 +100,6 @@ h1{
     transition: 0.3s ease;
 }
 .nearby-tab:hover, .nearby-tab.active { background-color: #294638; color: #F3EBDD; }
-
-/* REVIEWS */
-.review-summary { color: #A77B52 !important; font-weight: bold; font-size: 17px !important; }
-.review-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0 30px; }
-.review-form .full { grid-column: 1 / -1; }
-.review-form .field-label { color: #294638; font-weight: bold; font-size: 14px; margin: 0; }
-.review-form input[type="text"], .review-form textarea, .review-form select {
-    padding: 11px;
-    border: 1px solid #D5C9B2;
-    border-radius: 8px;
-    background-color: #F3EBDD;
-    color: #282722;
-    font-family: inherit;
-    font-size: 14px;
-}
-#review-msg { margin: 12px 0 0; color: #294638 !important; font-weight: bold; }
-
-/* STAR RATING (pure CSS) */
-.star-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; }
-.star-input input { display: none; }
-.star-input label { font-size: 30px; color: #D5C9B2; cursor: pointer; transition: color 0.2s; }
-.star-input input:checked ~ label,
-.star-input label:hover,
-.star-input label:hover ~ label { color: #D5A66F; }
-
-/* REVIEW LIST */
-.review-item { padding: 16px 0; border-top: 1px solid #EAE0CC; }
-.review-head { display: flex; justify-content: space-between; align-items: center; }
-.review-head strong { color: #294638; }
-.review-stars { color: #D5A66F; letter-spacing: 2px; }
-.review-item small { color: #A77B52; }
-.review-item p { margin: 8px 0 0; }
-
-@media (max-width: 768px) {
-    .review-form { grid-template-columns: 1fr; }
-    .map-frame { height: 300px; }
-}
-[hidden] { display: none !important; }
-
-/* METRO LINE BADGES (top strip + location) */
-.line-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; letter-spacing: 0.5px; }
-.quick-facts div { border-top-width: 5px; }
 
 /* TICKETS */
 .ticket-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 6px 0 18px; }
@@ -205,7 +149,35 @@ h1{
 .price-pill { white-space: nowrap; background: #294638; color: #F3EBDD; border-radius: 14px; padding: 5px 12px; font-size: 12px; }
 .place-card .empty { font-style: italic; }
 
-@media (max-width: 768px) {
-    .loc-grid { grid-template-columns: 1fr; }
-    .spot { flex-direction: column; gap: 8px; }
+/* REVIEWS */
+.review-summary { color: #A77B52 !important; font-weight: bold; font-size: 17px !important; }
+.review-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 20px 0 30px; }
+.review-form .full { grid-column: 1 / -1; }
+.review-form .field-label { color: #294638; font-weight: bold; font-size: 14px; margin: 0; }
+.review-form input[type="text"], .review-form textarea, .review-form select {
+    padding: 11px;
+    border: 1px solid #D5C9B2;
+    border-radius: 8px;
+    background-color: #F3EBDD;
+    color: #282722;
+    font-family: inherit;
+    font-size: 14px;
 }
+#review-msg { margin: 12px 0 0; color: #294638 !important; font-weight: bold; }
+
+.star-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; }
+.star-input input { display: none; }
+.star-input label { font-size: 30px; color: #D5C9B2; cursor: pointer; transition: color 0.2s; }
+.star-input input:checked ~ label,
+.star-input label:hover,
+.star-input label:hover ~ label { color: #D5A66F; }
+
+.review-item { padding: 16px 0; border-top: 1px solid #EAE0CC; }
+.review-head { display: flex; justify-content: space-between; align-items: center; }
+.review-head strong { color: #294638; }
+.review-stars { color: #D5A66F; letter-spacing: 2px; }
+.review-item small { color: #A77B52; }
+.review-item p { margin: 8px 0 0; }
+
+.line-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; letter-spacing: 0.5px; }
+.quick-facts div { border-top-width: 5px; }
