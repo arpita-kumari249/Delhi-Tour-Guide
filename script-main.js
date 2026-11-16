@@ -1,4 +1,4 @@
-/* ---------- 1. PLACE LIST (file names match the saved HTML files) ---------- */
+/* PLACE LIST*/
 const PLACES = [
   { name: 'India Gate',     file: 'India_Gate.html',    area: 'central', tags: ['historical', 'parks'],     hours: 1.5, outdoor: true,  night: true,  aliases: ['kartavya path', 'war memorial'] },
   { name: 'Red Fort',       file: 'Red_Fort.html',      area: 'old',     tags: ['historical', 'museums'],   hours: 2.5, outdoor: true,  night: false, aliases: ['lal qila', 'lal kila'] },
@@ -20,7 +20,7 @@ const NEAR = {
   north:   ['old']
 };
 
-/* ---------- 2. NAVBAR SEARCH ---------- */
+/* NAVBAR SEARCH */
 const clean = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 function findPlace(query) {
@@ -74,7 +74,7 @@ function setupSearch() {
   });
 }
 
-/* ---------- 3. HOMEPAGE: ONE SECTION AT A TIME ---------- */
+/* HOMEPAGE */
 function setupPages() {
   const hero = document.getElementById('home');
   if (!hero) return;
@@ -101,7 +101,7 @@ function setupPages() {
   route();
 }
 
-/* ---------- 4. ITINERARY MAKER ---------- */
+/*ITINERARY MAKER*/
 function fmt(h) {
   const H = Math.floor(h);
   let M = Math.round((h - H) * 60);

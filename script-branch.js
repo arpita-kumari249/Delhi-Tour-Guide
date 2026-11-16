@@ -5,9 +5,10 @@ const LINE_COLOURS = {
   Magenta: ['#C2185B', '#FFFFFF'],
   Pink:    ['#E87AA6', '#282722'],
   Red:     ['#D32F2F', '#FFFFFF'],
-  Green:   ['#2E8B57', '#FFFFFF']
+  Green:   ['#2E8B57', '#FFFFFF'],
 };
 const TRAVELLERS = ['Students', 'Solo', 'Family', 'Couples'];
+const PRICE_LABEL = { 1: '₹ Budget', 2: '₹₹ Mid-range', 3: '₹₹₹ Splurge' };
 
 const GENERAL_NOTE = 'Prices are indicative (checked November 2026) and can change. Confirm at the counter or on the official website before you go.';
 const ASI_LINK = ['Book on the official ASI portal', 'https://asi.payumoney.com'];
