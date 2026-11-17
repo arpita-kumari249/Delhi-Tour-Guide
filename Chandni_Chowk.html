@@ -28,7 +28,7 @@
 </header>
 
 <div class="place-hero" style="--hero-img: url('Chandni-Chowk.jpg');">
-    <p class="place-subtitle">OLD DELHI · MARKETS &amp; STREET FOOD</p>
+    <p class="place-subtitle">OLD DELHI · MARKETS & STREET FOOD</p>
     <h1>Welcome to Chandni Chowk</h1>
     <p class="place-tagline">Four centuries of bazaars, flavours and crowded, colourful lanes.</p>
 </div>
@@ -42,7 +42,7 @@
 
 <main class="place-content">
     <section class="place-card">
-        <img src="chandnichowk.jpg" alt="Chandni Chowk, Delhi">
+        <img src="ChandniChowk.jpg" alt="Chandni Chowk, Delhi">
         <h2>Insights</h2>
         <p>Chandni Chowk was laid out in the 17th century as the main avenue of Shah Jahan's new city, Shahjahanabad. It is traditionally said to have been planned with the help of his daughter, Jahanara Begum, and runs from the Red Fort towards Fatehpuri Masjid.</p>
         <p>Today it is one of the oldest and busiest markets in India. Lanes branch off in every direction: Dariba Kalan for silver and perfumes, Kinari Bazaar for wedding accessories, Chawri Bazar for paper and brass, and Khari Baoli, one of Asia's largest wholesale spice markets.</p>
@@ -63,68 +63,59 @@
         <p>Many shops open late morning and close in the evening, and a large part of the market is shut on Sundays. The lanes are very crowded, so keep your valuables secure and wear comfortable shoes. A cycle-rickshaw ride is an easy way to see the main streets. Choose busy, freshly cooked food stalls when eating on the street.</p>
     </section>
 
-    <div class="back-row"><a href="index.html#explore" class="btn">← Back to Top Places</a></div>
-</main>
+    <div class="place-extras">
 
-<div class="place-extras" data-place="India Gate, New Delhi">
+        <section class="place-card">
+            <h2>Reviews and Feedback</h2>
+            <p class="review-summary" id="review-summary"></p>
 
-    <section class="place-card">
-        <h2>Explore Near <span class="place-name"></span></h2>
-        <p>Find cafes, restaurants and shops around this place.</p>
-        <div class="nearby-tabs">
-            <button type="button" class="nearby-tab active" data-type="cafes">☕ Cafes</button>
-            <button type="button" class="nearby-tab" data-type="restaurants">🍽️ Restaurants</button>
-            <button type="button" class="nearby-tab" data-type="shops">🛍️ Shops</button>
-        </div>
-        <iframe class="map-frame" id="nearby-map" title="Nearby places" loading="lazy"></iframe>
-        <a id="nearby-link" class="btn" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
-    </section>
-
-    <section class="place-card">
-        <h2>Reviews &amp; Feedback</h2>
-        <p class="review-summary" id="review-summary"></p>
-
-        <form class="review-form" id="review-form">
-            <div class="form-group">
-                <label for="r-name">Your name</label>
-                <input type="text" id="r-name" name="name" maxlength="40" required>
-            </div>
-            <div class="form-group">
-                <label for="r-type">Type</label>
-                <select id="r-type" name="type">
-                    <option>Review</option>
-                    <option>Suggestion</option>
-                    <option>Report incorrect information</option>
-                </select>
-            </div>
-            <div class="form-group full">
-                <p class="field-label">Your rating</p>
-                <div class="star-input">
-                    <input type="radio" id="s5" name="rating" value="5"><label for="s5">★</label>
-                    <input type="radio" id="s4" name="rating" value="4"><label for="s4">★</label>
-                    <input type="radio" id="s3" name="rating" value="3"><label for="s3">★</label>
-                    <input type="radio" id="s2" name="rating" value="2"><label for="s2">★</label>
-                    <input type="radio" id="s1" name="rating" value="1"><label for="s1">★</label>
+            <form class="review-form" id="review-form">
+                <div class="form-group">
+                    <label for="r-name">Your name</label>
+                    <input type="text" id="r-name" name="name" maxlength="40" required>
                 </div>
-            </div>
-            <div class="form-group full">
-                <label for="r-text">Your feedback</label>
-                <textarea id="r-text" name="text" rows="4" maxlength="500" required></textarea>
-            </div>
-            <div class="full">
-                <button type="submit" class="btn">Submit Feedback</button>
-                <p id="review-msg" role="status"></p>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="r-type">Type</label>
+                    <select id="r-type" name="type">
+                        <option>Review</option>
+                        <option>Suggestion</option>
+                        <option>Report incorrect information</option>
+                    </select>
+                </div>
+                <div class="form-group full">
+                    <p class="field-label">Your rating</p>
+                    <div class="star-input">
+                        <input type="radio" id="s5" name="rating" value="5"><label for="s5">★</label>
+                        <input type="radio" id="s4" name="rating" value="4"><label for="s4">★</label>
+                        <input type="radio" id="s3" name="rating" value="3"><label for="s3">★</label>
+                        <input type="radio" id="s2" name="rating" value="2"><label for="s2">★</label>
+                        <input type="radio" id="s1" name="rating" value="1"><label for="s1">★</label>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label for="r-text">Your feedback</label>
+                    <textarea id="r-text" name="text" rows="4" maxlength="500" required></textarea>
+                </div>
+                <div class="full">
+                    <button type="submit" class="btn">Submit Feedback</button>
+                    <p id="review-msg" role="status"></p>
+                </div>
+            </form>
 
-        <div id="review-list"></div>
-    </section>
+            <div id="review-list"></div>
+        </section>
 
-</div>
+    </div>
+
+    <div class="back-row">
+        <a href="index.html#explore" class="btn">← Back to Top Places</a>
+    </div>
+
+</main>
 
 <footer class="site-footer">
     <div class="footer-bottom">
-        <p>&copy; 2026 Delhi Travels. All rights reserved. Photographs belong to their respective owners.</p>
+        <p>&copy 2026 Delhi Travels. All rights reserved. Photographs belong to their respective owners.</p>
     </div>
 </footer>
 </body>

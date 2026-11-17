@@ -453,27 +453,15 @@ function buildPlacePage(d) {
   }));
 }
 
-/*MAP + REVIEWS*/
-function setupMapAndReviews(d, id) {
-  const place = d ? `${d.name}, New Delhi` : ((document.querySelector('.place-extras') || {}).dataset || {}).place;
-  if (!place) return;
-  const q = encodeURIComponent(place);
-  const shortName = place.split(',')[0];
-
-  document.querySelectorAll('.place-name').forEach(s => { s.textContent = shortName; });
-
-  const map = document.getElementById('place-map');
-  if (map) map.src = `https://www.google.com/maps?q=${q}&output=embed`;
-  const dir = document.getElementById('directions-link');
-  if (dir) dir.href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
-
+/*REVIEWS*/
+function setupReviews(id) {
   const form = document.getElementById('review-form');
   const list = document.getElementById('review-list');
   const summary = document.getElementById('review-summary');
   const msg = document.getElementById('review-msg');
   if (!form || !list || !summary || !msg) return;
 
-  const key = 'reviews:' + (id || place);
+  const key = 'reviews:' + id;
   const load = () => { try { return JSON.parse(localStorage.getItem(key)) || []; } catch (err) { return []; } };
   const save = items => { try { localStorage.setItem(key, JSON.stringify(items)); } catch (err) { /* storage blocked */ } };
 
@@ -539,6 +527,6 @@ function setupMapAndReviews(d, id) {
   const d = PLACE_DATA[id];
 
   setupSearch();
-  buildPlacePage(d);          
-  setupMapAndReviews(d, id); 
+  buildPlacePage(d);
+  setupReviews(id);
 })();
